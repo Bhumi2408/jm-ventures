@@ -1,6 +1,6 @@
 import fs from "fs";
 import routes from "./src/sitemapRoutes.js";
-import { blogRouteMeta } from "./src/data/BlogRoutes.js";
+import { blogRouteMeta } from "./src/data/Blogroutes.js";
 
 const DOMAIN = "https://www.jm-ventures.in";
 const today = new Date().toISOString().split("T")[0];
