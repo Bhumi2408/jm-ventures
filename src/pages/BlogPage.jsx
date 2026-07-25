@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import { motion } from "framer-motion";
 import SEO from "../components/SEO";
 import BlogCard from "../components/BlogCard";
-import { getAllBlogs } from "../data/blogsData";
+import { getAllBlogs } from "../data/Blogsdata";
 
 const BlogPage = () => {
   const allBlogs = getAllBlogs();
