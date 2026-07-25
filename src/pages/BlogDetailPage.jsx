@@ -10,7 +10,7 @@ import {
   getRelatedBlogs,
   buildArticleSchema,
   buildFaqSchema,
-} from "../data/blogsData";
+} from "../data/Blogsdata";
 
 const formatDate = (dateStr) =>
   new Date(dateStr).toLocaleDateString("en-IN", {
