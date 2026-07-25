@@ -1,13 +1,13 @@
 import fs from "fs";
 import routes from "./src/sitemapRoutes.js";
-import { getAllBlogs } from "./src/data/Blogsdata.js";
+import { blogRouteMeta } from "./src/data/blogRoutes.js";
 
 const DOMAIN = "https://www.jm-ventures.in";
 const today = new Date().toISOString().split("T")[0];
 
 // Dynamically pull in blog routes so you don't have to hand-edit
 // sitemapRoutes.js every time a new blog post is added.
-const blogRoutes = ["/blog", ...getAllBlogs().map((b) => `/blog/${b.slug}`)];
+const blogRoutes = ["/blog", ...blogRouteMeta.map((b) => `/blog/${b.slug}`)];
 
 const allRoutes = [...routes, ...blogRoutes];
 
