@@ -13,7 +13,7 @@ const blogs = [
       "Explore the best Dholera land for sale with JM Venture. Discover verified Dholera plots for sale, prime investment locations, legal documentation, affordable prices, and high-growth opportunities in Dholera Smart City.",
     category: "Investment Guide",
     excerpt:
-      "Looking for the best Dholera land for sale? Dholera Smart City has become one of India's fastest-growing real estate investment destinations. Backed by the Government of India under the Delhi-Mumbai Industrial Corridor (DMIC), Dholera offers world-class infrastructure, industrial growth, and excellent long-term appreciation potential.",
+      "Dholera Smart City has become one of India's fastest-growing real estate investment destinations. Discover why now is the right time to explore verified Dholera plots for sale.",
     coverImage: dholeraCover,
     author: "JM Ventures",
     date: "2026-07-20",
@@ -21,7 +21,7 @@ const blogs = [
     intro: [
       "Looking for the best [Dholera land for sale](/dholera-plots)? Dholera Smart City has become one of India's fastest-growing real estate investment destinations. Backed by the Government of India under the Delhi-Mumbai Industrial Corridor (DMIC), Dholera offers world-class infrastructure, industrial growth, and excellent long-term appreciation potential.",
       "Whether you're planning to buy residential property, commercial land, or investment plots, now is the right time to explore **Dholera plots for sale** before prices increase further.",
-      "If you're searching for a trusted real estate partner, **JM Venture**  is one of the leading names offering legally verified plots, transparent documentation, and premium investment opportunities in Dholera Smart City.",
+      "If you're searching for a trusted real estate partner, **JM Venture** is one of the leading names offering legally verified plots, transparent documentation, and premium investment opportunities in Dholera Smart City.",
     ],
     content: [
       {
@@ -61,7 +61,7 @@ const blogs = [
         heading: "2. Government-Backed Development",
         level: "sub",
         paragraphs: [
-          "Unlike many speculatiUnlike many speculative real estate projects, Dholera Smart City is supported by central and state government initiatives, making it a more structured and reliable investment destination.",
+          "Unlike many speculative real estate projects, Dholera Smart City is supported by central and state government initiatives, making it a more structured and reliable investment destination.",
         ],
       },
       {
@@ -1011,13 +1011,13 @@ const blogs = [
       "Dholera Smart City Plot Price in 2026: Latest Rates, Best Locations, Investment Benefits & Buyer's Guide",
     metaTitle: "Dholera Smart City Plot Price: Latest Plot Rates & Investment Tips",
     metaDescription:
-      " Planning to buy plots in Dholera Smart City? Learn the latest plot prices, investment benefits, best locations, and expert guidance from JM Venture.",
+      "Planning to buy plots in Dholera Smart City? Learn the latest plot prices, investment benefits, best locations, and expert guidance from JM Venture.",
     category: "Investment Guide",
     excerpt:
       "Planning to buy plots in Dholera Smart City? Learn the latest plot prices, investment benefits, best locations, and expert guidance from JM Venture.",
     coverImage: plotPriceCover,
     author: "JM Ventures",
-    date: "2026-07-25",
+    date: "2026-07-24",
     readTime: "12 min read",
     intro: [
       "The **Dholera Smart City Plot Price** has become one of the most searched topics among property investors, NRIs, business owners, and first-time buyers looking to invest in India's fastest-growing smart city. With large-scale infrastructure development, government-backed planning, and increasing investor interest, Dholera Smart City is emerging as one of the country's most promising real estate destinations.",
@@ -1705,12 +1705,15 @@ const blogs = [
   },
 ];
 
-export const getAllBlogs = () => blogs;
+export const getAllBlogs = () =>
+  [...blogs].sort((a, b) => new Date(b.date) - new Date(a.date));
 
 export const getBlogBySlug = (slug) => blogs.find((b) => b.slug === slug);
 
 export const getRelatedBlogs = (slug, count = 3) =>
-  blogs.filter((b) => b.slug !== slug).slice(0, count);
+  getAllBlogs()
+    .filter((b) => b.slug !== slug)
+    .slice(0, count);
 
 // ---- JSON-LD schema builders ----
 
