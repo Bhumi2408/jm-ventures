@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 import { useNavigate } from "../router";
+import SEO from "../components/SEO";
 
 const channels = [
   {
@@ -114,6 +115,11 @@ const Contact = () => {
   const update = (key, value) => setForm({ ...form, [key]: value });
   return (
     <>
+      <SEO
+        title="Contact JM Ventures | Dholera Smart City Property Experts"
+        description="Contact JM Ventures for expert guidance on Dholera Smart City investments. Get details on plot prices, site visits, government-approved projects, and personalized assistance from our property experts."
+        url="https://www.jm-ventures.in/contact"
+      />
       {/* hero section */}
       <section className="relative min-h-[70dvh] flex items-center bg-foreground text-white overflow-hidden pt-40 pb-28">
         <div className="absolute inset-0 z-0">

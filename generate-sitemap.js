@@ -1,19 +1,25 @@
 import fs from "fs";
 import routes from "./src/sitemapRoutes.js";
+import { getAllBlogs } from "./src/data/blogsData.js";
 
 const DOMAIN = "https://www.jm-ventures.in";
 const today = new Date().toISOString().split("T")[0];
 
+// Dynamically pull in blog routes so you don't have to hand-edit
+// sitemapRoutes.js every time a new blog post is added.
+const blogRoutes = ["/blog", ...getAllBlogs().map((b) => `/blog/${b.slug}`)];
+
+const allRoutes = [...routes, ...blogRoutes];
+
 const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${routes
+${allRoutes
   .map((route) => {
     let priority = "0.8";
-    let changefreq = "monthly";
+    const changefreq = "daily";
 
     if (route === "/") {
       priority = "1.0";
-      changefreq = "weekly";
     } else if (
       route === "/projects" ||
       route.startsWith("/iconic") ||
@@ -23,13 +29,15 @@ ${routes
       route.startsWith("/gaur")
     ) {
       priority = "0.9";
-      changefreq = "weekly";
+    } else if (route === "/blog") {
+      priority = "0.9";
+    } else if (route.startsWith("/blog/")) {
+      priority = "0.7";
     } else if (
       route === "/privacy-policy" ||
       route === "/terms-and-conditions"
     ) {
       priority = "0.3";
-      changefreq = "yearly";
     }
 
     return `

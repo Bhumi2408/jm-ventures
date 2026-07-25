@@ -21,6 +21,7 @@ import mukesh from "../assets/home/mukesh.jpeg";
 import yashi from "../assets/home/yashi.jpeg";
 import connectivityBg from "../assets/about/connectivity-bg.png";
 import { useEffect, useRef, useState } from "react";
+import SEO from "../components/SEO";
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
@@ -119,7 +120,6 @@ const leaders = [
     img: mukesh,
     bio: "25+ years across NCR property markets; strategic real estate advisory with deep developer relationships.",
   },
-  
 ];
 
 const milestones = [
@@ -196,6 +196,11 @@ const About = () => {
   const heroParallax = useTransform(scrollY, [0, 700], [0, 180]);
   return (
     <>
+      <SEO
+        title="About JM Ventures | Trusted Dholera Smart City Real Estate Consultant"
+        description="Learn about JM Ventures, a trusted real estate consultant specializing in Dholera Smart City. Explore government-approved plots, expert investment guidance, transparent deals, and personalized support for property buyers."
+        url="https://www.jm-ventures.in/about"
+      />
       {/* hero section */}
       <section className="relative h-[80dvh] min-h-[640px] w-full flex items-end overflow-hidden bg-foreground">
         <motion.div
@@ -579,7 +584,11 @@ const About = () => {
       {/* CTA */}
       <section className="relative py-32 overflow-hidden bg-foreground text-[#F8F5F2]">
         <div className="absolute inset-0 opacity-25">
-          <img src={connectivityBg} alt="" className="w-full h-full object-cover" />
+          <img
+            src={connectivityBg}
+            alt=""
+            className="w-full h-full object-cover"
+          />
         </div>
         {/* <div className="absolute inset-0 bg-gradient-to-r from-foreground/95 via-foreground/85 to-foreground/95" /> */}
 
@@ -596,13 +605,19 @@ const About = () => {
               <div className="w-10 h-[1px] bg-accent" />
             </div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold leading-[1.1] tracking-tight mb-8">
-              Ready to participate in India's <span className="italic text-accent">next great cities?</span>
+              Ready to participate in India's{" "}
+              <span className="italic text-accent">next great cities?</span>
             </h2>
             <p className="text-lg md:text-xl text-[#F8F5F2]/75 max-w-2xl mx-auto font-sans leading-relaxed mb-12">
-              Schedule a private consultation with our investment desk. We'll walk you through the corridors, the projects, and the numbers — at your pace.
+              Schedule a private consultation with our investment desk. We'll
+              walk you through the corridors, the projects, and the numbers — at
+              your pace.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/contact" className="bg-primary text-sm px-8 py-4 h-14 uppercase font-semibold" >
+              <Link
+                to="/contact"
+                className="bg-primary text-sm px-8 py-4 h-14 uppercase font-semibold"
+              >
                 Schedule a Consultation
               </Link>
               <Link

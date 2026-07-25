@@ -12,8 +12,8 @@ import AceEstate from "./pages/AceEstate";
 import Privacy from "./pages/Privacy";
 import Termsconditions from "./pages/Termsconditions";
 import ThankYou from "./pages/ThankYou";
-
-
+import BlogPage from "./pages/BlogPage";
+import BlogDetailPage from "./pages/BlogDetailPage";
 
 export const routes = [
   { path: "/", component: Home },
@@ -29,5 +29,8 @@ export const routes = [
   { path: "/ace-estate", component: AceEstate },
   { path: "/privacy-policy", component: Privacy },
   { path: "/terms-and-conditions", component: Termsconditions },
+  { path: "/blog", component: BlogPage },
+  { path: "/blog/:slug", component: BlogDetailPage },
+
   { path: "/thank-you", component: ThankYou },
 ];

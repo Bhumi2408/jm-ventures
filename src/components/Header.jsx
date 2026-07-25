@@ -193,6 +193,17 @@ transition-all duration-300 ease-out w-56"
                 </div>
               </div>
             </div>
+            <Link to="/blog">
+              <button
+                className={`text-sm font-medium hover:text-primary transition-colors ${
+                  scrolled
+                    ? "text-foreground"
+                    : "text-white/90 hover:text-white"
+                }`}
+              >
+                Blog
+              </button>
+            </Link>
             <Link to="/contact">
               <button
                 className={`text-sm font-medium hover:text-primary transition-colors ${
@@ -399,6 +410,20 @@ transition-all duration-300 ease-out w-56"
                   </div>
                 )}
               </div>
+
+              <Link
+                to="/blog"
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  setMobileDropdownOpen(false);
+                }}
+              >
+                <div className="px-4 py-4 rounded-2xl hover:bg-primary/5 transition-all duration-300">
+                  <p className="text-base font-semibold text-foreground">
+                   Blog
+                  </p>
+                </div>
+              </Link>
 
               <Link
                 to="/contact"

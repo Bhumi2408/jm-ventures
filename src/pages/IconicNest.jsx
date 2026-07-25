@@ -40,6 +40,7 @@ import g5 from "../assets/iconicnest/nest4.jpeg";
 import g6 from "../assets/iconicnest/nest5.jpg";
 import g7 from "../assets/iconicnest/nest6.png";
 import iconiclogo from "../assets/iconicnestlogo.png";
+import SEO from "../components/SEO";
 
 const NAV_LINKS = ["Home", "About", "Projects", "Contact"];
 
@@ -417,6 +418,11 @@ const IconicNest = () => {
 
   return (
     <div className="min-h-[100dvh] bg-[#F8F5F2] text-[#1A1414] selection:bg-[#873953] selection:text-white overflow-x-hidden font-sans">
+      <SEO
+  title="Dholera Plot Price 2026 | Dholera Land Price & Residential Plots"
+  description="Looking for the latest Dholera Plot Price or Dholera Land Price? Compare residential plot prices, explore verified projects, and invest confidently with expert support from JM Ventures."
+  url="https://www.jm-ventures.in/dholera-plots"
+/>
       {/* 1) HERO */}
       <section className="relative h-[100dvh] min-h-[640px] w-full overflow-hidden">
         <motion.div

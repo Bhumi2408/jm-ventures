@@ -62,16 +62,20 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
-
+import SEO from "../components/SEO";
 
 const STAGGER = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+  visible: { opacity: 1, transition: { staggerChildren: 0.15 } },
 };
 
 const FADE_UP = {
   hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] } }
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.8, ease: [0.22, 1, 0.36, 1] },
+  },
 };
 
 const AnimatedUnderline = () => (
@@ -176,7 +180,7 @@ const PROJECTS = [
     details: "71 plots • 155-300 sq yards • ~11,661 sqm",
     image: dholera,
     status: "Selling Fast",
-    link:"/dholera-plots",
+    link: "/dholera-plots",
   },
   {
     name: "London Mart",
@@ -185,7 +189,7 @@ const PROJECTS = [
     details: "Premium Retail & Office Spaces",
     image: londonmart,
     status: "Premium",
-    link:"/london-mart",
+    link: "/london-mart",
   },
   {
     name: "Ace Edit",
@@ -194,7 +198,7 @@ const PROJECTS = [
     details: "Near Upcoming Jewar Airport",
     image: aceedit,
     status: "Strategic",
-    link:"/ace-edit",
+    link: "/ace-edit",
   },
 ];
 
@@ -205,7 +209,7 @@ const C_PROJECTS = [
     description:
       "A flagship integrated township association — large-scale residential community with schools, retail and green spaces that set the benchmark for new-city living.",
     image: gaurImg,
-    link:"/gaur-city"
+    link: "/gaur-city",
   },
   {
     name: "Ace Estate",
@@ -213,7 +217,7 @@ const C_PROJECTS = [
     description:
       "A contemporary residential development positioned along one of India's most promising growth corridors, anchored by the upcoming Noida International Airport.",
     image: aceImg,
-    link:"/ace-estate"
+    link: "/ace-estate",
   },
 ];
 
@@ -325,15 +329,29 @@ const FAQS = [
   {
     q: "What expected returns are realistic for the Yamuna Expressway corridor?",
     a: "Given the proximity to the Jewar International Airport and Film City, the corridor is witnessing rapid infrastructural growth. Historically, similar corridors have seen 15-25% annualized appreciation in the developmental phase.",
-  }
+  },
 ];
 
 const leaders = [
-    { name: "Jatin Madani", role: "DIRECTOR", img: jatin, bio: "25+ years in NCR real estate, expert in Noida, Greater Noida, Yamuna Expressway land investments and project development." },
-    { name: "Yashi Madani", role: "DIRECTOR", img: yashi, bio: "Queen Mary University of London graduate; next-generation leadership focused on brand, investor engagement, and digital growth." },
-    { name: "Mukesh Jodhani", role: "DIRECTOR", img: mukesh, bio: "25+ years across NCR property markets; strategic real estate advisory with deep developer relationships." },
-  ];
-
+  {
+    name: "Jatin Madani",
+    role: "DIRECTOR",
+    img: jatin,
+    bio: "25+ years in NCR real estate, expert in Noida, Greater Noida, Yamuna Expressway land investments and project development.",
+  },
+  {
+    name: "Yashi Madani",
+    role: "DIRECTOR",
+    img: yashi,
+    bio: "Queen Mary University of London graduate; next-generation leadership focused on brand, investor engagement, and digital growth.",
+  },
+  {
+    name: "Mukesh Jodhani",
+    role: "DIRECTOR",
+    img: mukesh,
+    bio: "25+ years across NCR property markets; strategic real estate advisory with deep developer relationships.",
+  },
+];
 
 const Counter = ({ end, suffix = "", prefix = "", inView }) => {
   const [count, setCount] = useState(0);
@@ -373,14 +391,19 @@ const Counter = ({ end, suffix = "", prefix = "", inView }) => {
 const Home = () => {
   const ref = useRef(null);
   const inView = useInView(ref, { once: true, margin: "-100px" });
-   const [activeIndex, setActiveIndex] = useState(null);
+  const [activeIndex, setActiveIndex] = useState(null);
 
   const toggle = (index) => {
     setActiveIndex(activeIndex === index ? null : index);
   };
+
   return (
     <>
-
+      <SEO
+        title="Dholera Smart City Plots | Buy Residential Plots in Dholera SIR | JM Ventures"
+        description="Invest in government-approved residential plots in Dholera Smart City with JM Ventures. Explore Dholera SIR projects, plot prices, site visits, expert consultation & secure investment opportunities."
+        url="https://www.jm-ventures.in/"
+      />
       {/* hero section */}
       <section className="relative min-h-[100dvh] flex items-center justify-center overflow-hidden">
         {/* Animated Video Background */}
@@ -447,7 +470,8 @@ const Home = () => {
               >
                 Explore Projects
               </Link>
-              <Link to="/about"
+              <Link
+                to="/about"
                 variant="outline"
                 className="w-full sm:w-auto py-2 px-8 bg-white/5 text-white hover:bg-white/10 rounded-lg border-[1px] border-white text-base"
               >
@@ -477,7 +501,6 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
       {/* marquee */}
       <section className="bg-background py-8 border-y border-border overflow-hidden">
         <div className="relative">
@@ -502,7 +525,6 @@ const Home = () => {
           </motion.div>
         </div>
       </section>
-
       {/* about */}
       <section id="about" className="py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12">
@@ -599,7 +621,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* stats */}
       <section
         ref={ref}
@@ -632,7 +653,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* services section */}
       <section className="py-24 bg-muted/30">
         <div className="container mx-auto px-6 md:px-12">
@@ -670,7 +690,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Why JM Ventures */}
       <section className="py-24 bg-gradient-to-tr from-[#585b5e]/60 via-primary/50 to-primary/30">
         <div className="container mx-auto px-6 md:px-12">
@@ -717,7 +736,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* ongoing projects */}
       <section className="py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12">
@@ -734,56 +752,57 @@ const Home = () => {
                 Estate.
               </p>
             </div>
-            <Link to="/projects" className="text-sm px-5 py-2 border-[1px] border-black rounded-lg">
+            <Link
+              to="/projects"
+              className="text-sm px-5 py-2 border-[1px] border-black rounded-lg"
+            >
               View All Projects
             </Link>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {PROJECTS.map((project, index) => (
-            <Link key={index} to={project.link}>
-              <motion.div
-                
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.15 }}
-                className="group relative rounded-2xl overflow-hidden bg-card border border-border"
-              >
-                <div className="aspect-[4/3] overflow-hidden relative">
-                  <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
-                  <img
-                    src={project.image}
-                    alt={project.name}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                  <div className="absolute top-4 right-4 z-20 bg-background rounded-lg text-xs px-2 py-1 text-foreground hover:bg-background border-none shadow-sm font-semibold">
-                    {project.status}
+              <Link key={index} to={project.link}>
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.15 }}
+                  className="group relative rounded-2xl overflow-hidden bg-card border border-border"
+                >
+                  <div className="aspect-[4/3] overflow-hidden relative">
+                    <div className="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors z-10"></div>
+                    <img
+                      src={project.image}
+                      alt={project.name}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    />
+                    <div className="absolute top-4 right-4 z-20 bg-background rounded-lg text-xs px-2 py-1 text-foreground hover:bg-background border-none shadow-sm font-semibold">
+                      {project.status}
+                    </div>
                   </div>
-                </div>
-                <div className="p-6">
-                  <div className="text-sm font-medium text-primary mb-2">
-                    {project.type}
+                  <div className="p-6">
+                    <div className="text-sm font-medium text-primary mb-2">
+                      {project.type}
+                    </div>
+                    <h3 className="text-2xl font-serif font-bold mb-2">
+                      {project.name}
+                    </h3>
+                    <div className="flex items-center gap-2 text-muted-foreground mb-4 text-sm">
+                      <MapPin className="w-4 h-4" />
+                      <span>{project.location}</span>
+                    </div>
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm py-3 border-t border-border">
+                      <Maximize className="w-4 h-4" />
+                      <span>{project.details}</span>
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-serif font-bold mb-2">
-                    {project.name}
-                  </h3>
-                  <div className="flex items-center gap-2 text-muted-foreground mb-4 text-sm">
-                    <MapPin className="w-4 h-4" />
-                    <span>{project.location}</span>
-                  </div>
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm py-3 border-t border-border">
-                    <Maximize className="w-4 h-4" />
-                    <span>{project.details}</span>
-                  </div>
-                </div>
-              </motion.div>
+                </motion.div>
               </Link>
             ))}
           </div>
         </div>
       </section>
-
       {/* completed projects */}
       <section className="py-24 bg-gradient-to-b from-[#585b5e]/50 via-transparent to-[#585b5e]/20">
         <div className="container mx-auto px-6 md:px-12">
@@ -808,45 +827,44 @@ const Home = () => {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {C_PROJECTS.map((p, i) => (
-             <Link key={p.name} to={p.link}>
-               <motion.article 
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-80px" }}
-                transition={{ duration: 0.7, delay: i * 0.15 }}
-                className="group bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
-              >
-                <div className="relative h-72 overflow-hidden">
-                  <img
-                    src={p.image}
-                    alt={p.name}
-                    className="w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
-                  />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
-                  <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-background/95 backdrop-blur px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-primary">
-                    <CheckCircle2 className="w-3.5 h-3.5" />
-                    Completed
+              <Link key={p.name} to={p.link}>
+                <motion.article
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-80px" }}
+                  transition={{ duration: 0.7, delay: i * 0.15 }}
+                  className="group bg-card border border-border rounded-2xl overflow-hidden shadow-sm hover:shadow-2xl hover:-translate-y-1 transition-all duration-500"
+                >
+                  <div className="relative h-72 overflow-hidden">
+                    <img
+                      src={p.image}
+                      alt={p.name}
+                      className="w-full h-full object-cover transition-transform duration-[1.4s] group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                    <div className="absolute top-4 left-4 inline-flex items-center gap-1.5 bg-background/95 backdrop-blur px-3 py-1.5 rounded-full text-xs font-semibold uppercase tracking-wider text-primary">
+                      <CheckCircle2 className="w-3.5 h-3.5" />
+                      Completed
+                    </div>
                   </div>
-                </div>
-                <div className="p-7">
-                  <div className="flex items-center gap-2 text-muted-foreground text-sm mb-2">
-                    <MapPin className="w-4 h-4 text-primary" />
-                    {p.location}
+                  <div className="p-7">
+                    <div className="flex items-center gap-2 text-muted-foreground text-sm mb-2">
+                      <MapPin className="w-4 h-4 text-primary" />
+                      {p.location}
+                    </div>
+                    <h3 className="text-2xl font-serif font-bold text-foreground mb-3">
+                      {p.name}
+                    </h3>
+                    <p className="text-muted-foreground leading-relaxed text-sm">
+                      {p.description}
+                    </p>
                   </div>
-                  <h3 className="text-2xl font-serif font-bold text-foreground mb-3">
-                    {p.name}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed text-sm">
-                    {p.description}
-                  </p>
-                </div>
-              </motion.article>
-             </Link>
+                </motion.article>
+              </Link>
             ))}
           </div>
         </div>
       </section>
-
       {/* gallery */}
       <section className="py-24 bg-gradient-to-b from-primary/30 via-transparent to-primary/20">
         <div className="container mx-auto px-6 md:px-12">
@@ -893,7 +911,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* Strategic Growth Markets */}
       <section className="py-24 bg-primary text-primary-foreground relative overflow-hidden">
         <div
@@ -990,7 +1007,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* The Investment Case */}
       <section className="relative py-24 bg-muted/30 overflow-hidden">
         <div className="container mx-auto px-6 md:px-12">
@@ -1113,7 +1129,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-
       {/* process */}
       <section className="py-24 bg-gradient-to-b from-[#585b5e]/50 via-primary/40 to-primary/30">
         <div className="container mx-auto px-6 md:px-12">
@@ -1166,7 +1181,6 @@ const Home = () => {
           </div>
         </div>
       </section>
-      
       {/* LEADERSHIP */}
       <section className="py-24 md:py-32 bg-[#F2EFEA]">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
@@ -1177,11 +1191,17 @@ const Home = () => {
             variants={STAGGER}
             className="max-w-3xl mb-16"
           >
-            <motion.div variants={FADE_UP} className="flex items-center gap-4 mb-6">
+            <motion.div
+              variants={FADE_UP}
+              className="flex items-center gap-4 mb-6"
+            >
               <AnimatedUnderline />
               <span className="text-eyebrow text-primary">LEADERSHIP</span>
             </motion.div>
-            <motion.h2 variants={FADE_UP} className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-[1.1] tracking-tight">
+            <motion.h2
+              variants={FADE_UP}
+              className="text-4xl md:text-5xl lg:text-6xl font-serif font-bold text-foreground leading-[1.1] tracking-tight"
+            >
               The people behind every signature.
             </motion.h2>
           </motion.div>
@@ -1207,38 +1227,45 @@ const Home = () => {
                   />
                 </div>
                 <div className="pt-6 flex-1 flex flex-col">
-                  <h3 className="text-3xl font-serif font-bold text-foreground mb-1">{leader.name}</h3>
-                  <p className="text-primary/80 font-mono text-xs font-bold uppercase tracking-[0.15em] mb-4">{leader.role}</p>
-                  <p className="text-foreground/70 font-sans leading-relaxed flex-1">{leader.bio}</p>
+                  <h3 className="text-3xl font-serif font-bold text-foreground mb-1">
+                    {leader.name}
+                  </h3>
+                  <p className="text-primary/80 font-mono text-xs font-bold uppercase tracking-[0.15em] mb-4">
+                    {leader.role}
+                  </p>
+                  <p className="text-foreground/70 font-sans leading-relaxed flex-1">
+                    {leader.bio}
+                  </p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
         </div>
       </section>
-      
       {/* testimonial section */}
       <section className="py-24 bg-[#585b5e]/30 overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12">
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">Investor Perspectives</h2>
-        </div>
+        <div className="container mx-auto px-6 md:px-12">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold text-foreground">
+              Investor Perspectives
+            </h2>
+          </div>
 
-        <motion.div
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="max-w-4xl mx-auto relative px-8"
-        >
-          <Quote className="absolute top-0 left-0 w-24 h-24 text-primary/10 -z-10 -translate-x-1/2 -translate-y-1/2 rotate-180" />
-          
-            <Swiper  modules={[Navigation]}
-      navigation={true}  
-      spaceBetween={20}
-      slidesPerView={1}>
-    
-    
+          <motion.div
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="max-w-4xl mx-auto relative px-8"
+          >
+            <Quote className="absolute top-0 left-0 w-24 h-24 text-primary/10 -z-10 -translate-x-1/2 -translate-y-1/2 rotate-180" />
+
+            <Swiper
+              modules={[Navigation]}
+              navigation={true}
+              spaceBetween={20}
+              slidesPerView={1}
+            >
               {TESTIMONIALS.map((testimonial, index) => (
                 <SwiperSlide key={index}>
                   <div className="p-6 md:p-8 text-center">
@@ -1246,17 +1273,20 @@ const Home = () => {
                       "{testimonial.text}"
                     </p>
                     <div>
-                      <div className="font-bold text-lg">{testimonial.author}</div>
-                      <div className="text-muted-foreground text-sm">{testimonial.role}</div>
+                      <div className="font-bold text-lg">
+                        {testimonial.author}
+                      </div>
+                      <div className="text-muted-foreground text-sm">
+                        {testimonial.role}
+                      </div>
                     </div>
                   </div>
                 </SwiperSlide>
               ))}
             </Swiper>
-        </motion.div>
-      </div>
-    </section>
-
+          </motion.div>
+        </div>
+      </section>
       {/* Blog section */}
       {/* <section className="py-24 bg-background">
         <div className="container mx-auto px-6 md:px-12">
@@ -1318,64 +1348,66 @@ const Home = () => {
           </div>
         </div>
       </section> */}
-        
-    {/* FAQ section */}
-    <section className="py-24 bg-gradient-to-t from-[#585b5e]/20 via-primary/20 to-primary/30">
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl">
-        
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-muted-foreground text-lg">
-            Clear answers to help you make informed decisions.
-          </p>
-        </div>
+      {/* FAQ section */}
+      <section className="py-24 bg-gradient-to-t from-[#585b5e]/20 via-primary/20 to-primary/30">
+        <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl md:text-5xl font-serif font-bold mb-4">
+              Frequently Asked Questions
+            </h2>
+            <p className="text-muted-foreground text-lg">
+              Clear answers to help you make informed decisions.
+            </p>
+          </div>
 
-        <div className="space-y-4">
-          {FAQS.map((faq, index) => (
-            <div
-              key={index}
-              className="border rounded-xl bg-white/70 backdrop-blur-md shadow-sm"
-            >
-              {/* Question */}
-              <button
-                onClick={() => toggle(index)}
-                className="w-full flex justify-between items-center px-5 py-4 text-left"
-              >
-                {faq.q}
-                <span className="text-xl">
-                  {activeIndex === index ? "−" : "+"}
-                </span>
-              </button>
-
-              {/* Answer */}
+          <div className="space-y-4">
+            {FAQS.map((faq, index) => (
               <div
-                className={`overflow-hidden transition-all duration-300 ${
-                  activeIndex === index ? "max-h-40 px-5 pb-4" : "max-h-0"
-                }`}
+                key={index}
+                className="border rounded-xl bg-white/70 backdrop-blur-md shadow-sm"
               >
-                <p className="text-muted-foreground">{faq.a}</p>
+                {/* Question */}
+                <button
+                  onClick={() => toggle(index)}
+                  className="w-full flex justify-between items-center px-5 py-4 text-left"
+                >
+                  {faq.q}
+                  <span className="text-xl">
+                    {activeIndex === index ? "−" : "+"}
+                  </span>
+                </button>
+
+                {/* Answer */}
+                <div
+                  className={`overflow-hidden transition-all duration-300 ${
+                    activeIndex === index ? "max-h-40 px-5 pb-4" : "max-h-0"
+                  }`}
+                >
+                  <p className="text-muted-foreground">{faq.a}</p>
+                </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
-      </div>
-    </section>
-    
-
-    <section className="py-24 bg-primary text-primary-foreground text-center px-6">
-      <div className="container mx-auto max-w-3xl">
-        <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-white/90">Ready to Create Value?</h2>
-        <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto font-light">
-          Schedule a private consultation with our directors to discuss tailored investment opportunities across India's most promising real estate corridors.
-        </p>
-        <Link to="/contact" className="bg-white text-primary hover:bg-gray-100 hover:text-primary text-lg px-8 py-5 h-14 rounded-md font-semibold border-none">
-          Schedule a Consultation
-        </Link>
-      </div>
-    </section>
+      </section>
+      <section className="py-24 bg-primary text-primary-foreground text-center px-6">
+        <div className="container mx-auto max-w-3xl">
+          <h2 className="text-4xl md:text-5xl font-serif font-bold mb-6 text-white/90">
+            Ready to Create Value?
+          </h2>
+          <p className="text-xl text-white/90 mb-10 max-w-2xl mx-auto font-light">
+            Schedule a private consultation with our directors to discuss
+            tailored investment opportunities across India's most promising real
+            estate corridors.
+          </p>
+          <Link
+            to="/contact"
+            className="bg-white text-primary hover:bg-gray-100 hover:text-primary text-lg px-8 py-5 h-14 rounded-md font-semibold border-none"
+          >
+            Schedule a Consultation
+          </Link>
+        </div>
+      </section>
     </>
   );
 };
