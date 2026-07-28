@@ -6,6 +6,7 @@ import {
   useTransform,
 } from "framer-motion";
 import { Link } from "../router"; // or next/link
+import { buildFaqSchema } from "../data/Blogsdata";
 
 import {
   MapPinned,
@@ -387,6 +388,52 @@ const EXCLUSIVE_OFFER = [
 ];
 
 const IconicNest = () => {
+  const pageUrl = "https://www.jm-ventures.in/dholera-plots";
+
+  const productSchema = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    name: "Iconic Nest – Dholera SIR Plots",
+    description:
+      "Premium plotted development inside Dholera SIR on SH-40, Gujarat. 71 freehold residential plots, sizes 155–300 sq yards.",
+    brand: { "@type": "Organization", name: "JM Ventures" },
+    areaServed: "Dholera SIR, Gujarat, India",
+    offers: {
+      "@type": "AggregateOffer",
+      priceCurrency: "INR",
+      availability: "https://schema.org/InStock",
+      url: pageUrl,
+    },
+  };
+
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.jm-ventures.in/",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Projects",
+        item: "https://www.jm-ventures.in/projects",
+      },
+      {
+        "@type": "ListItem",
+        position: 3,
+        name: "Iconic Nest – Dholera Plots",
+        item: pageUrl,
+      },
+    ],
+  };
+
+  const faqSchema = buildFaqSchema(FAQS);
+  const schema = [productSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+
   const [lightbox, setLightbox] = useState(null);
   const [scrolled, setScrolled] = useState(false);
   const [openFaq, setOpenFaq] = useState(0);
@@ -419,10 +466,11 @@ const IconicNest = () => {
   return (
     <div className="min-h-[100dvh] bg-[#F8F5F2] text-[#1A1414] selection:bg-[#873953] selection:text-white overflow-x-hidden font-sans">
       <SEO
-  title="Dholera Plot Price 2026 | Dholera Land Price & Residential Plots"
-  description="Looking for the latest Dholera Plot Price or Dholera Land Price? Compare residential plot prices, explore verified projects, and invest confidently with expert support from JM Ventures."
-  url="https://www.jm-ventures.in/dholera-plots"
-/>
+        title="Dholera Plot Price 2026 | Dholera Land Price & Residential Plots"
+        description="Looking for the latest Dholera Plot Price or Dholera Land Price? Compare residential plot prices, explore verified projects, and invest confidently with expert support from JM Ventures."
+        url={pageUrl}
+        schema={schema}
+      />
       {/* 1) HERO */}
       <section className="relative h-[100dvh] min-h-[640px] w-full overflow-hidden">
         <motion.div
@@ -557,6 +605,191 @@ const IconicNest = () => {
         </motion.div>
       </section>
 
+      {/* 4) GALLERY */}
+      <section
+        id="gallery"
+        className="bg-gradient-to-tr from-primary to-foreground px-6 lg:px-10 py-28 lg:py-36 text-[#F8F5F2] relative"
+      >
+        <span
+          aria-hidden
+          className="pointer-events-none absolute left-0 bottom-0 font-serif italic text-[24vw] lg:text-[18vw] leading-none text-white/[0.025] select-none"
+        >
+          gallery
+        </span>
+
+        <div className="max-w-7xl mx-auto relative">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
+            <div className="lg:col-span-6">
+              <SectionLabel label="Gallery" tone="dark" />
+              <h2 className="font-serif text-4xl lg:text-5xl leading-[1.05] mt-6">
+                A walk through
+                <span className="italic text-[#873953]"> Iconic Nest.</span>
+              </h2>
+            </div>
+            <div className="lg:col-span-5 lg:col-start-8 lg:pt-3 flex items-end">
+              <p className="text-[#F8F5F2] font-light leading-relaxed">
+                Renders, location visuals and aerial impressions of the master
+                plan and surrounding infrastructure. Click any frame to expand.
+              </p>
+            </div>
+          </div>
+
+          {/* Asymmetric editorial gallery grid */}
+          <div className="grid grid-cols-12 gap-3 md:gap-4">
+            <GalleryTile
+              item={GALLERY[0]}
+              index={0}
+              className="col-span-12 md:col-span-8 aspect-[16/10]"
+              onClick={setLightbox}
+            />
+            <GalleryTile
+              item={GALLERY[1]}
+              index={1}
+              className="col-span-6 md:col-span-4 aspect-square"
+              onClick={setLightbox}
+            />
+            <GalleryTile
+              item={GALLERY[2]}
+              index={2}
+              className="col-span-6 md:col-span-4 aspect-[4/5]"
+              onClick={setLightbox}
+            />
+            <GalleryTile
+              item={GALLERY[3]}
+              index={3}
+              className="col-span-12 md:col-span-4 aspect-[4/5]"
+              onClick={setLightbox}
+            />
+            <GalleryTile
+              item={GALLERY[4]}
+              index={4}
+              className="col-span-12 md:col-span-4 aspect-[4/5]"
+              onClick={setLightbox}
+            />
+            <GalleryTile
+              item={GALLERY[5]}
+              index={5}
+              className="col-span-6 md:col-span-7 aspect-[16/10]"
+              onClick={setLightbox}
+            />
+            <GalleryTile
+              item={GALLERY[6]}
+              index={6}
+              className="col-span-6 md:col-span-5 aspect-[16/10]"
+              onClick={setLightbox}
+            />
+          </div>
+
+          <div className="flex items-center justify-center mt-10 relative">
+            <Link
+              to="https://wa.me/919899053053"
+              target="_blank"
+              className="bg-white hover:bg-[#1A1414] flex text-primary rounded-none px-9 py-7 text-[11px] tracking-[0.25em] uppercase h-auto group min-w-[240px] hover:text-white"
+            >
+              Get Latest Plot Price
+              <ArrowUpRight className="w-4 h-4 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* 5) LOCATION ADVANTAGE */}
+      <section
+        id="location"
+        className="px-6 lg:px-10 py-28 lg:py-40 bg-[#F8F5F2] relative"
+      >
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          <div className="lg:col-span-5 lg:sticky lg:top-32">
+            <SectionLabel label="Location Advantage" />
+            <h2 className="font-serif text-4xl lg:text-5xl leading-[1.05] text-[#1A1414] mt-6 mb-8">
+              The right address,
+              <span className="italic text-[#873953]"> at the right time.</span>
+            </h2>
+            <p className="text-[#1A1414]/70 font-light leading-relaxed mb-6 text-lg">
+              Dholera is the only Indian city being built from scratch with
+              road, rail, air and sea access — backed personally from the PM's
+              office for over a decade.
+            </p>
+            <p className="text-[#1A1414]/60 font-light leading-relaxed">
+              Iconic Nest sits on the airport road inside it. The kind of
+              address that defines the next forty years.
+            </p>
+
+            <div className="mt-10 inline-flex items-center gap-4 px-6 py-4 border border-[#1A1414]/15 hover:border-[#873953] hover:bg-[#873953] hover:text-white transition-colors duration-500 cursor-pointer group">
+              <MapPin className="w-4 h-4 text-[#873953] group-hover:text-white" />
+              <div>
+                <div className="text-[10px] tracking-[0.3em] uppercase opacity-60">
+                  On the Map
+                </div>
+                <div className="font-serif italic text-base">
+                  Fedra–Pipli Road, SH-40
+                </div>
+              </div>
+              <ArrowUpRight className="w-4 h-4 ml-2 group-hover:rotate-45 transition-transform" />
+            </div>
+
+            <div className="mt-10 inline-block">
+              <Link
+                to="https://wa.me/919899053053"
+                target="_blank"
+                className="bg-[#873953] hover:bg-[#1A1414] flex text-white rounded-none px-9 py-7 text-[11px] tracking-[0.25em] uppercase h-auto group min-w-[240px]"
+              >
+                Book Free Site Visit
+                <ArrowUpRight className="w-4 h-4 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+              </Link>
+            </div>
+          </div>
+
+          <div className="lg:col-span-7">
+            {/* Image */}
+            <div className="relative mb-10 group overflow-hidden">
+              <div className="aspect-[5/4] overflow-hidden">
+                <img
+                  src={g7}
+                  alt="Connectivity"
+                  className="w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-105"
+                />
+              </div>
+              <div className="absolute top-4 left-4 bg-[#F8F5F2]/95 backdrop-blur px-4 py-2 text-[#1A1414]">
+                <span className="text-[10px] tracking-[0.3em] uppercase font-semibold">
+                  Connectivity Map
+                </span>
+              </div>
+            </div>
+
+            {/* Connectivity timeline */}
+            <div className="space-y-px bg-[#1A1414]/10">
+              {CONNECTIVITY.map((c, idx) => (
+                <motion.div
+                  key={c.label}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ duration: 0.5, delay: idx * 0.08 }}
+                  className="bg-[#F8F5F2] grid grid-cols-12 gap-4 items-center px-5 py-5 hover:bg-white transition-colors group"
+                >
+                  <div className="col-span-2 lg:col-span-2">
+                    <span className="text-[10px] tracking-[0.3em] uppercase text-[#873953] font-semibold">
+                      {c.label}
+                    </span>
+                  </div>
+                  <div className="col-span-7 lg:col-span-7">
+                    <div className="font-serif text-lg lg:text-xl text-[#1A1414] leading-tight">
+                      {c.title}
+                    </div>
+                  </div>
+                  <div className="col-span-3 lg:col-span-3 text-right">
+                    <span className="text-xs text-[#1A1414]/55 font-light italic">
+                      {c.note}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* 2) OVERVIEW */}
       <section
         id="overview"
@@ -686,180 +919,6 @@ const IconicNest = () => {
         </div>
       </section>
 
-      {/* 4) GALLERY */}
-      <section
-        id="gallery"
-        className="bg-gradient-to-tr from-primary to-foreground px-6 lg:px-10 py-28 lg:py-40 text-[#F8F5F2] relative"
-      >
-        <span
-          aria-hidden
-          className="pointer-events-none absolute left-0 bottom-0 font-serif italic text-[24vw] lg:text-[18vw] leading-none text-white/[0.025] select-none"
-        >
-          gallery
-        </span>
-
-        <div className="max-w-7xl mx-auto relative">
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 mb-14">
-            <div className="lg:col-span-6">
-              <SectionLabel label="Gallery" tone="dark" />
-              <h2 className="font-serif text-4xl lg:text-5xl leading-[1.05] mt-6">
-                A walk through
-                <span className="italic text-[#873953]"> Iconic Nest.</span>
-              </h2>
-            </div>
-            <div className="lg:col-span-5 lg:col-start-8 lg:pt-3 flex items-end">
-              <p className="text-[#F8F5F2] font-light leading-relaxed">
-                Renders, location visuals and aerial impressions of the master
-                plan and surrounding infrastructure. Click any frame to expand.
-              </p>
-            </div>
-          </div>
-
-          {/* Asymmetric editorial gallery grid */}
-          <div className="grid grid-cols-12 gap-3 md:gap-4">
-            <GalleryTile
-              item={GALLERY[0]}
-              index={0}
-              className="col-span-12 md:col-span-8 aspect-[16/10]"
-              onClick={setLightbox}
-            />
-            <GalleryTile
-              item={GALLERY[1]}
-              index={1}
-              className="col-span-6 md:col-span-4 aspect-square"
-              onClick={setLightbox}
-            />
-            <GalleryTile
-              item={GALLERY[2]}
-              index={2}
-              className="col-span-6 md:col-span-4 aspect-[4/5]"
-              onClick={setLightbox}
-            />
-            <GalleryTile
-              item={GALLERY[3]}
-              index={3}
-              className="col-span-12 md:col-span-4 aspect-[4/5]"
-              onClick={setLightbox}
-            />
-            <GalleryTile
-              item={GALLERY[4]}
-              index={4}
-              className="col-span-12 md:col-span-4 aspect-[4/5]"
-              onClick={setLightbox}
-            />
-            <GalleryTile
-              item={GALLERY[5]}
-              index={5}
-              className="col-span-6 md:col-span-7 aspect-[16/10]"
-              onClick={setLightbox}
-            />
-            <GalleryTile
-              item={GALLERY[6]}
-              index={6}
-              className="col-span-6 md:col-span-5 aspect-[16/10]"
-              onClick={setLightbox}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* 5) LOCATION ADVANTAGE */}
-      <section
-        id="location"
-        className="px-6 lg:px-10 py-28 lg:py-40 bg-[#F8F5F2] relative"
-      >
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          <div className="lg:col-span-5 lg:sticky lg:top-32">
-            <SectionLabel label="Location Advantage" />
-            <h2 className="font-serif text-4xl lg:text-5xl leading-[1.05] text-[#1A1414] mt-6 mb-8">
-              The right address,
-              <span className="italic text-[#873953]"> at the right time.</span>
-            </h2>
-            <p className="text-[#1A1414]/70 font-light leading-relaxed mb-6 text-lg">
-              Dholera is the only Indian city being built from scratch with
-              road, rail, air and sea access — backed personally from the PM's
-              office for over a decade.
-            </p>
-            <p className="text-[#1A1414]/60 font-light leading-relaxed">
-              Iconic Nest sits on the airport road inside it. The kind of
-              address that defines the next forty years.
-            </p>
-
-            <div className="mt-10 inline-flex items-center gap-4 px-6 py-4 border border-[#1A1414]/15 hover:border-[#873953] hover:bg-[#873953] hover:text-white transition-colors duration-500 cursor-pointer group">
-              <MapPin className="w-4 h-4 text-[#873953] group-hover:text-white" />
-              <div>
-                <div className="text-[10px] tracking-[0.3em] uppercase opacity-60">
-                  On the Map
-                </div>
-                <div className="font-serif italic text-base">
-                  Fedra–Pipli Road, SH-40
-                </div>
-              </div>
-              <ArrowUpRight className="w-4 h-4 ml-2 group-hover:rotate-45 transition-transform" />
-            </div>
-
-            <div className="mt-10 inline-block">
-              <Link
-                to="https://wa.me/919899053053"
-                target="_blank"
-                className="bg-[#873953] hover:bg-[#1A1414] flex text-white rounded-none px-9 py-7 text-[11px] tracking-[0.25em] uppercase h-auto group min-w-[240px]"
-              >
-                Book Free Site Visit
-                <ArrowUpRight className="w-4 h-4 ml-3 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
-              </Link>
-            </div>
-          </div>
-
-          <div className="lg:col-span-7">
-            {/* Image */}
-            <div className="relative mb-10 group overflow-hidden">
-              <div className="aspect-[5/4] overflow-hidden">
-                <img
-                  src={g7}
-                  alt="Connectivity"
-                  className="w-full h-full object-cover transition-transform duration-[1500ms] ease-out group-hover:scale-105"
-                />
-              </div>
-              <div className="absolute top-4 left-4 bg-[#F8F5F2]/95 backdrop-blur px-4 py-2 text-[#1A1414]">
-                <span className="text-[10px] tracking-[0.3em] uppercase font-semibold">
-                  Connectivity Map
-                </span>
-              </div>
-            </div>
-
-            {/* Connectivity timeline */}
-            <div className="space-y-px bg-[#1A1414]/10">
-              {CONNECTIVITY.map((c, idx) => (
-                <motion.div
-                  key={c.label}
-                  initial={{ opacity: 0, x: 20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true, margin: "-50px" }}
-                  transition={{ duration: 0.5, delay: idx * 0.08 }}
-                  className="bg-[#F8F5F2] grid grid-cols-12 gap-4 items-center px-5 py-5 hover:bg-white transition-colors group"
-                >
-                  <div className="col-span-2 lg:col-span-2">
-                    <span className="text-[10px] tracking-[0.3em] uppercase text-[#873953] font-semibold">
-                      {c.label}
-                    </span>
-                  </div>
-                  <div className="col-span-7 lg:col-span-7">
-                    <div className="font-serif text-lg lg:text-xl text-[#1A1414] leading-tight">
-                      {c.title}
-                    </div>
-                  </div>
-                  <div className="col-span-3 lg:col-span-3 text-right">
-                    <span className="text-xs text-[#1A1414]/55 font-light italic">
-                      {c.note}
-                    </span>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* 6) WHAT YOU GET — refined spec sheet */}
       <section
         id="details"
@@ -949,10 +1008,10 @@ const IconicNest = () => {
           </div>
           <div className="lg:col-span-7 lg:col-start-6 lg:pt-3">
             <p className="text-lg leading-[1.75] text-[#1A1414]/75 font-light">
-              Looking for the <strong>best Dholera plot price</strong> with
+              Looking for the best <Link href="dholera-plots" className="text-primary font-bold"> Dholera plot price</Link> with
               maximum future appreciation? Welcome to{" "}
               <strong>JM Venture</strong>, your trusted real estate partner for
-              premium <strong>Dholera plots for sale</strong>. Whether you're
+              premium <strong className="text-primary font-bold">Dholera plots for sale</strong>. Whether you're
               planning to build your dream home, invest for long-term wealth, or
               buy commercial land, we offer legally verified plots in the most
               promising locations of Dholera Smart City.
@@ -1122,7 +1181,8 @@ const IconicNest = () => {
             </div>
             <div className="lg:col-span-5 lg:col-start-8 lg:pt-3 flex items-end">
               <p className="text-[#F8F5F2]/70 font-light leading-relaxed">
-                JM Venture offers a wide selection of Dholera plots for sale, including:
+                JM Venture offers a wide selection of Dholera plots for sale,
+                including:
               </p>
             </div>
           </div>
@@ -1234,10 +1294,12 @@ const IconicNest = () => {
             </ul>
 
             <p className="text-[#F8F5F2]/65 font-light leading-relaxed mt-8">
-              Unlike many speculative markets, Dholera's growth is backed by planned infrastructure and government-led development.
+              Unlike many speculative markets, Dholera's growth is backed by
+              planned infrastructure and government-led development.
             </p>
             <p className="text-[#F8F5F2]/65 font-light leading-relaxed mt-8">
-              This makes it attractive for both first-time investors and experienced real estate buyers.
+              This makes it attractive for both first-time investors and
+              experienced real estate buyers.
             </p>
           </div>
 
@@ -1266,7 +1328,8 @@ const IconicNest = () => {
               ))}
             </div>
             <p className="text-[#F8F5F2]/50 font-light italic mt-3 mb-8">
-              Our consultants help you select the most suitable option according to your investment goals.
+              Our consultants help you select the most suitable option according
+              to your investment goals.
             </p>
           </div>
         </div>
@@ -1336,7 +1399,7 @@ const IconicNest = () => {
               </span>
             </h2>
             <p className="text-[#F8F5F2]/60 font-light leading-relaxed mb-8">
-             Before buying any property, consider:
+              Before buying any property, consider:
             </p>
             <ul className="space-y-3">
               {CHOOSE_CHECKLIST.map((item) => (
@@ -1347,7 +1410,8 @@ const IconicNest = () => {
               ))}
             </ul>
             <p className="text-[#F8F5F2]/60 font-light leading-relaxed mb-8">
-             Avoid purchasing based only on low prices—always evaluate the project's legal status and development prospects.
+              Avoid purchasing based only on low prices—always evaluate the
+              project's legal status and development prospects.
             </p>
           </div>
 
@@ -1372,7 +1436,8 @@ const IconicNest = () => {
               ))}
             </div>
             <p className="text-[#F8F5F2]/60 font-light leading-relaxed mb-8">
-              Whether your budget is modest or substantial, JM Venture can help you identify a suitable opportunity.
+              Whether your budget is modest or substantial, JM Venture can help
+              you identify a suitable opportunity.
             </p>
           </div>
         </div>
@@ -1451,11 +1516,11 @@ const IconicNest = () => {
             </div>
             <div className="lg:col-span-7">
               <p className="text-[#F8F5F2]/65 font-light leading-relaxed text-lg mb-8">
-                Buying real estate is a major decision. At <strong>JM Venture</strong>, we focus
-                on helping clients make informed choices by providing
-                transparent information, verified projects, and professional
-                support from inquiry to registration. Whether you're searching
-                for:
+                Buying real estate is a major decision. At{" "}
+                <strong>JM Venture</strong>, we focus on helping clients make
+                informed choices by providing transparent information, verified
+                projects, and professional support from inquiry to registration.
+                Whether you're searching for:
               </p>
               <div className="flex flex-wrap gap-3 mb-8">
                 {SEARCH_TERMS.map((term) => (

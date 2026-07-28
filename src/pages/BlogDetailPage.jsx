@@ -250,7 +250,7 @@ const BlogDetailPage = () => {
             </p>
             <a
               href="/contact"
-              className="inline-block bg-primary text-primary-foreground px-7 py-3 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
+              className="inline-block bg-primary text-white px-7 py-3 rounded-md text-sm font-semibold hover:opacity-90 transition-opacity"
             >
               Schedule a Consultation
             </a>
