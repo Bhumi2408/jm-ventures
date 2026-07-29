@@ -3328,7 +3328,7 @@ export const getRelatedBlogs = (slug, count = 3) =>
 
 export const buildArticleSchema = (blog, url) => ({
   "@context": "https://schema.org",
-  "@type": "Article",
+  "@type": "BlogPosting",   // <-- Article se BlogPosting kiya
   headline: blog.title,
   description: blog.metaDescription || blog.excerpt,
   image: blog.coverImage,
