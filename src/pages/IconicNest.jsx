@@ -390,21 +390,59 @@ const EXCLUSIVE_OFFER = [
 const IconicNest = () => {
   const pageUrl = "https://www.jm-ventures.in/dholera-plots";
 
-  const productSchema = {
+const webPageSchema = {
     "@context": "https://schema.org",
-    "@type": "Product",
-    name: "Iconic Nest – Dholera SIR Plots",
+    "@type": "WebPage",
+    "@id": `${pageUrl}#webpage`,
+    url: pageUrl,
+    name: "Dholera Plots for Sale | Residential Plots in Dholera SIR | JM Ventures",
+    headline: "Premium Residential Plots in Dholera SIR",
     description:
-      "Premium plotted development inside Dholera SIR on SH-40, Gujarat. 71 freehold residential plots, sizes 155–300 sq yards.",
-    brand: { "@type": "Organization", name: "JM Ventures" },
-    areaServed: "Dholera SIR, Gujarat, India",
-    offers: {
-      "@type": "AggregateOffer",
-      priceCurrency: "INR",
-      availability: "https://schema.org/InStock",
-      url: pageUrl,
+      "Explore premium residential plots in Dholera SIR, Gujarat with JM Ventures. Discover freehold plots, transparent pricing, legal documentation, and expert assistance for property investment in Dholera.",
+    inLanguage: "en-IN",
+    isPartOf: {
+      "@type": "WebSite",
+      "@id": "https://www.jm-ventures.in/#website",
+      name: "JM Ventures",
+      url: "https://www.jm-ventures.in/",
     },
+    about: {
+      "@type": "Thing",
+      name: "Residential Plots in Dholera SIR",
+    },
+    primaryImageOfPage: {
+      "@type": "ImageObject",
+      url: "https://www.jm-ventures.in/images/dholera-plots-banner.jpg",
+    },
+    publisher: {
+      "@type": "Organization",
+      name: "JM Ventures",
+      url: "https://www.jm-ventures.in/",
+      logo: {
+        "@type": "ImageObject",
+        url: "https://www.jm-ventures.in/logo.png",
+      },
+    },
+    mainEntity: {
+      "@type": "Service",
+      name: "Dholera Residential Plot Booking",
+      serviceType: "Residential Plot Investment",
+      provider: {
+        "@type": "Organization",
+        name: "JM Ventures",
+      },
+      areaServed: {
+        "@type": "Place",
+        name: "Dholera SIR, Gujarat, India",
+      },
+    },
+    breadcrumb: {
+      "@id": `${pageUrl}#breadcrumb`,
+    },
+    datePublished: "2025-01-01",
+    dateModified: "2026-07-29",
   };
+
 
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -432,7 +470,7 @@ const IconicNest = () => {
   };
 
   const faqSchema = buildFaqSchema(FAQS);
-  const schema = [productSchema, breadcrumbSchema, faqSchema].filter(Boolean);
+  const schema = [webPageSchema, breadcrumbSchema, faqSchema].filter(Boolean);
 
   const [lightbox, setLightbox] = useState(null);
   const [scrolled, setScrolled] = useState(false);
