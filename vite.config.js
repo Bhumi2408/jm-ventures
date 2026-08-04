@@ -1,14 +1,15 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from "vite";
+import react from "@vitejs/plugin-react";
 
-// https://vite.dev/config/
 export default defineConfig({
   plugins: [react()],
   server: {
-    host: '0.0.0.0',       // external connections allow
-    port: 5173,            // tumhara dev port
+    host: "0.0.0.0",
+    port: 5173,
     allowedHosts: [
-      '.trycloudflare.com' // ← yahan apna tunnel host daal
+      "jm-ventures.in",
+      "www.jm-ventures.in",
+      ".trycloudflare.com",
     ],
   },
-})
+});
